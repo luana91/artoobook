@@ -1,3 +1,5 @@
+var mongoose = require ('mongoose');
+var User = require ('./users.model.js');
 
 module.exports = (function(){
     var getUsers = function(req, res) {
@@ -5,7 +7,13 @@ module.exports = (function(){
     };
 
     var createUsers = function(req, res) {
-        res.send("creazioni utenti");
+        var utente = req.body;
+        var newUtente = new Users(utente);
+        newUtente.save().then(function(data){
+            res.status(200).send(data);
+        }).catch(function(err){
+            res.status(500).send(err);
+        });
     };
 
     var detailUsers = function(req, res) {
