@@ -9,12 +9,15 @@ router.get('/', Users.getUsers);
 router.post('/', Users.createUsers);
 
 //DETTAGLIO UTENTE
-router.get('/:id', Users.detailUsers);
+router.get('/id/:id', Users.detailUsers);
 
 //ELIMINAUTENTE
-router.delete('/:id', Users.deleteUsers);
+router.delete('/id/:id', Users.deleteUsers);
 
 //AGGIORNA
-router.put('/:id', Users.updateUsers);
+router.put('/id/:id', Users.updateUsers);
+
+//RICERCA PER NOME O COGNOME
+router.get('/cerca/', Users.cercaUsers);
 
 module.exports = router;
