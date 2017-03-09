@@ -8,6 +8,6 @@ var userSchema = new Schema ({
     età: Number,
 });
 
-var User = mongoose.model('User', userSchema);
+var Users = mongoose.model('Users', userSchema);
 
-module.exports = User;
+module.exports = Users;
