@@ -12,7 +12,7 @@ var Users = (function(){
             console.log(risposta);
         }).catch(function(err){
             console.log(err);
-        })
+        });
     }
         return{
             creaUtente: creaUtente
