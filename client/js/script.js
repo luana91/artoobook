@@ -27,14 +27,31 @@ $(document).ready(function(){
            "<td>" + users[i].cognome + "</td>" +
            "<td>" + users[i].sesso + "</td>" +
            "<td>" + users[i].età + "</td>" +
-           "<td><span idutente='"+ users[i]._id +"' class='glyphicon glyphicon-trash' style='cursor : pointer'></span></td>" +
-           "<td><span idmodifica='"+ users[i]._id +"' class='glyphicon glyphicon-pencil' style='cursor : pointer'></span></td>" +
+           "<td><span idutente='"+ users[i]._id +"' class='glyphicon glyphicon-trash elimina' style='cursor : pointer'></span></td>" +
+           "<td><span idmodifica='"+ users[i]._id +"' class='glyphicon glyphicon-pencil modifica' style='cursor : pointer'></span></td>" +
            "</tr>";
        }
 
        $("#tbody").html(str);
+       $('.elimina').click(function(){
+           var id = $(this).attr("idutente");
+           elimina(id);
+       })
+       /*$('.modifica').click(function(){
+           var id = $(this).attr("idmodifica");
+           modifica(id);
+       })*/
     }).catch();
 };
+
+function elimina(id){
+  Users.deleteUsers(id).then(function(data){
+      console.log(data);
+      disegna();
+  }).catch(function(err){
+      console.log(err);
+  });
+}
 
 disegna();
 });
