@@ -14,4 +14,7 @@ $(document).ready(function(){
        Users.creaUtente(nuovo);
        this.reset();
     });
+    Users.getUsers().then(function(data){
+        console.log(data);
+    }).catch();
 });
