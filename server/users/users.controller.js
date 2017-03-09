@@ -24,7 +24,11 @@ module.exports = (function(){
 
     var detailUsers = function(req, res) {
         var id = req.params.id;
-        res.send("dettaglio utente con id:" + id);
+        Users.findById(id).exec().then(function(data){
+            res.status(200).json(data);
+        }).catch(function(err){
+            res.status(500).send(err);
+        });
     };
 
     var deleteUsers = function(req, res) {
