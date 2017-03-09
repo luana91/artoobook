@@ -5,7 +5,7 @@ var userSchema = new Schema ({
     nome: {type: String, required:[true, 'devi inserire il nome']},
     cognome: {type: String, required:[true, 'devi inserire il cognome'], unique:[true, "cognome già esistente"]},
     sesso: {type: String, enum:["Male", 'Female']},
-    età: {type: Number, required: true, min:[18, "devi essere maggiorenne"]}
+    eta: {type: Number, required: true, min:[18, "devi essere maggiorenne"]}
 });
 
 

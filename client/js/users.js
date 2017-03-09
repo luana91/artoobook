@@ -43,11 +43,22 @@ var Users = (function(){
         });
     }
 
+    var aggiornaUsers = function(id,data){
+        return $.ajax({
+                url:'http://localhost:3000/users/id/' +id,
+                method: "PUT",
+                contentType: "application/json",
+                dataType: "json",
+                data: JSON.stringify(data),
+        });
+    }
+
         return{
             creaUtente: creaUtente,
             getUsers: getUsers,
             deleteUsers:deleteUsers,
             modificaUsers: modificaUsers,
+            aggiornaUsers: aggiornaUsers,
         }
 
 })();
