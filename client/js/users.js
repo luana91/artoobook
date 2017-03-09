@@ -34,10 +34,20 @@ var Users = (function(){
         });
     }
 
+    var modificaUsers = function(id){
+        return $.ajax({
+                url:'http://localhost:3000/users/id/' +id,
+                method: "GET",
+                contentType: "application/json",
+                dataType: "json",
+        });
+    }
+
         return{
             creaUtente: creaUtente,
             getUsers: getUsers,
             deleteUsers:deleteUsers,
+            modificaUsers: modificaUsers,
         }
 
 })();

@@ -9,9 +9,10 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>ArtooBook</h1>
 <div class="container">
-    <form id="miaform">
+    <h1>ArtooBook</h1>
+    <button id="nuovo" class="btn btn-success">Inserisci nuovo</button>
+    <form id="miaform" class="hidden">
         <div class"form-group">
             <label for ="nome">Nome</label>
             <input type="text" class="form-control" id="nome" name="nome" placeholder="Inserisci il nome">
@@ -29,13 +30,40 @@
         </div>
         <br>
         <div class"form-group">
-            <label for ="età">Età</label>
-            <input type="number" class="form-control" id="età" name="età" placeholder="Inserisci l'età" min=18">
+            <label for ="eta">Età</label>
+            <input type="number" class="form-control" id="eta" name="eta" placeholder="Inserisci l\'età" min=18">
         <br>
         </div>
-        <button class="btn btn-success">Inserisci</button>
+        <button class="btn btn-success" id="salva">Salva</button>
         </form>
+
+        <form id="aggiornaform" class="hidden">
+        <div class"form-group">
+            <label for ="nome">Nome</label>
+            <input type="text" class="form-control" id="nome" name="nome" placeholder="Inserisci il nome">
+        </div>
+        <br>
+        <div class"form-group">
+            <label for ="cognome">Cognome</label>
+            <input type="text" class="form-control" id="cognome" name="cognome" placeholder="Inserisci il cognome">
+        </div>
+        <br>
+        <div class"form-group">
+        <label for ="sesso">Sesso:</label><br>
+        <input type=radio id="sesso" name="Male" value="Male">Male
+        <input type=radio id="sesso" name="Female" value="Female">Female
+        </div>
+        <br>
+        <div class"form-group">
+            <label for="eta">Età</label>
+            <input type="number" class="form-control" id="eta" name="eta" placeholder="Inserisci l\'eta" min=18">
+        <br>
+        </div>
+        <button class="btn btn-success" id="salvataggio">Salva</button>
+        </form>
+
         <br><br>
+
         <table class="table table-striped">
             <thead>
                 <th>Nome</th>

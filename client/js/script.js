@@ -37,17 +37,44 @@ $(document).ready(function(){
            var id = $(this).attr("idutente");
            elimina(id);
        })
-       /*$('.modifica').click(function(){
+       $('.modifica').click(function(){
            var id = $(this).attr("idmodifica");
            modifica(id);
-       })*/
+       })
     }).catch();
 };
+
+$("#nuovo").click(function(){
+    $("#miaform").removeClass("hidden");
+    $("#aggiornaform").addClass("hidden");
+     $(".table").hide();
+    
+});
+
 
 function elimina(id){
   Users.deleteUsers(id).then(function(data){
       console.log(data);
       disegna();
+  }).catch(function(err){
+      console.log(err);
+  });
+}
+
+function modifica(id){
+  Users.modificaUsers(id).then(function(user){
+      $("#aggiornaform [name=nome]").val(user.nome);
+      $("#aggiornaform [name=cognome]").val(user.cognome);
+      if(user.sesso == "Female"){
+      $("#aggiornaform [name=Female]").prop("checked",true);
+        }
+    if(user.sesso == "Male"){
+      $("#aggiornaform [name=Male]").prop("checked",true);
+      }
+      $("#aggiornaform [name=eta]").val(user.età);
+      $("#aggiornaform").removeClass("hidden");
+      $("#miaform").addClass("hidden");
+      $(".table").hide();
   }).catch(function(err){
       console.log(err);
   });
